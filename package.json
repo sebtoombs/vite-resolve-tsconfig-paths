@@ -1,0 +1,54 @@
+{
+  "name": "vite-plugin-tsconfig-paths",
+  "version": "1.0.0",
+  "description": "A Vite plugin that resolves TypeScript compilerOptions.paths.",
+  "type": "module",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "exports": {
+    "types": "./dist/index.d.ts",
+    "default": "./dist/index.js"
+  },
+  "author": "sebtoombs",
+  "repository": "sebtoombs/vite-plugin-tsconfig-paths",
+  "license": "MIT",
+  "scripts": {
+    "build": "tsup-node",
+    "lint": "eslint ."
+  },
+  "dependencies": {
+    "tsconfck": "^3.1.3",
+    "tsconfig-paths": "^4.2.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.10.0",
+    "@types/node": "^22.5.4",
+    "eslint": "^9.10.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-unicorn": "^55.0.0",
+    "globals": "^15.9.0",
+    "tsup": "^8.2.4",
+    "typescript": "^5.5.4",
+    "typescript-eslint": "^8.4.0",
+    "vite": "^5.4.3"
+  },
+  "peerDependencies": {
+    "vite": "*"
+  },
+  "peerDependenciesMeta": {
+    "vite": {
+      "optional": true
+    }
+  },
+  "keywords": [
+    "vite",
+    "resolver",
+    "tsconfig",
+    "paths"
+  ],
+  "files": [
+    "src",
+    "dist"
+  ]
+}
