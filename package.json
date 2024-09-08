@@ -1,5 +1,5 @@
 {
-  "name": "vite-plugin-tsconfig-paths",
+  "name": "vite-resolve-tsconfig-paths",
   "version": "0.0.0",
   "description": "A Vite plugin that resolves TypeScript compilerOptions.paths.",
   "type": "module",
@@ -11,7 +11,7 @@
     "default": "./dist/index.js"
   },
   "author": "sebtoombs",
-  "repository": "sebtoombs/vite-plugin-tsconfig-paths",
+  "repository": "sebtoombs/vite-resolve-tsconfig-paths",
   "license": "MIT",
   "scripts": {
     "build": "tsup-node",
@@ -47,9 +47,13 @@
   },
   "keywords": [
     "vite",
+    "plugin",
+    "resolve",
     "resolver",
     "tsconfig",
-    "paths"
+    "paths",
+    "typescript",
+    "compilerOptions.paths"
   ],
   "files": [
     "src",
