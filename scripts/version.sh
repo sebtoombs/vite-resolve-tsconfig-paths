@@ -108,3 +108,6 @@ git push origin main --follow-tags
 echo "Tag v$VERSION_NEXT pushed to remote"
 
 echo "Version $VERSION_NEXT created successfully"
+
+git checkout main
+git pull origin main
