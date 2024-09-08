@@ -68,6 +68,11 @@ fi
 
 echo "Next version: $VERSION_NEXT"
 
+echo "Creating release branch"
+
+# Create a new branch for the release
+git checkout -b "release/v$VERSION_NEXT"
+
 echo "Updating package.json version"
 
 # Update version in package.json
@@ -94,6 +99,9 @@ echo "Creating git tag"
 # Create an annotated tag
 git tag -a "v$VERSION_NEXT" -m "Release: v$VERSION_NEXT"
  
+# Push the changes to the release branch
+git push origin "release/v$VERSION_NEXT"
+
 # Optional: push commits and tag to remote 'main' branch
 git push origin main --follow-tags
 
