@@ -11,7 +11,10 @@
     "default": "./dist/index.js"
   },
   "author": "sebtoombs",
-  "repository": "sebtoombs/vite-resolve-tsconfig-paths",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sebtoombs/vite-resolve-tsconfig-paths.git"
+  },
   "license": "MIT",
   "scripts": {
     "build": "tsup-node",
