@@ -47,6 +47,7 @@ const parseOptions: TSConfckParseOptions = {
 
 const nativeParseOptions: TSConfckParseNativeOptions = {
   cache: new TSConfckCache(),
+  ignoreSourceFiles: true,
 };
 
 async function processProject(
