@@ -81,7 +81,7 @@ sed -i '' "s/\"version\": \".*\"/\"version\": \"$VERSION_NEXT\"/" package.json
 echo "Updating package-lock.json version"
 
 # Update package-lock.json
-npm ci
+npm install
 
 echo "Committing changes"
 
