@@ -14,19 +14,17 @@ Add to `vite.config.js`
 
 ```js
 // vite.config.js
-import { defineConfig } from "vite"
-import tsConfigPaths from "vite-resolve-tsconfig-paths"
+import { defineConfig } from "vite";
+import tsConfigPaths from "vite-resolve-tsconfig-paths";
 
 export default defineConfig({
-	plugins: [tsConfigPaths()],
-})
+  plugins: [tsConfigPaths()],
+});
 ```
-
 
 ### Options
 
 Currently none. Some coming soon.
-
 
 ## FAQ
 
@@ -43,7 +41,6 @@ Yes. That was the main reason I created it.
 #### Does it support `${configDir}`?
 
 In theory yes. I haven't tested it yet. Test it, let me know.
-
 
 ## How it works
 
