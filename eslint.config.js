@@ -25,5 +25,5 @@ export default tseslint.config(
       ...eslintPluginUnicorn.configs["flat/recommended"].rules,
       "unicorn/no-null": "off",
     },
-  }
+  },
 );

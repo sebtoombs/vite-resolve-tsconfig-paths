@@ -33,7 +33,7 @@ function createResolver(matchPath: MatchPath) {
   return async (
     id: string,
     _importer: string | undefined,
-    extensions: string[] = [".ts", ".tsx"]
+    extensions: string[] = [".ts", ".tsx"],
   ) => {
     return matchPath(id, undefined, undefined, extensions);
   };
@@ -51,7 +51,7 @@ const nativeParseOptions: TSConfckParseNativeOptions = {
 
 async function processProject(
   project: ProjectParseResult,
-  projectRoot?: string
+  projectRoot?: string,
 ): Promise<Resolver | null | (Resolver | null)[]> {
   if (!projectRoot) {
     projectRoot = path.dirname(project.tsconfigFile);
@@ -61,8 +61,8 @@ async function processProject(
   if (project.referenced) {
     const resolvers = await Promise.all(
       project.referenced.map(
-        async (referenced) => await processProject(referenced, projectRoot)
-      )
+        async (referenced) => await processProject(referenced, projectRoot),
+      ),
     );
 
     return resolvers.flat(Infinity) as (Resolver | null)[];
@@ -70,7 +70,7 @@ async function processProject(
 
   const parsedProject = await parseNative(
     project.tsconfigFile,
-    nativeParseOptions
+    nativeParseOptions,
   );
 
   const baseUrl = parsedProject.result.options.baseUrl;
@@ -89,10 +89,10 @@ async function processProject(
 }
 
 async function processProjects(
-  projects: ProjectParseResult[]
+  projects: ProjectParseResult[],
 ): Promise<Resolver[]> {
   const resolvers = await Promise.all(
-    projects.map(async (project) => await processProject(project))
+    projects.map(async (project) => await processProject(project)),
   );
 
   return resolvers.flat(Infinity).filter(Boolean) as Resolver[];
@@ -114,7 +114,7 @@ export function tsconfigPaths(): Plugin {
       });
 
       const parsedProjects = (await Promise.all(
-        projectFiles.map((projectFile) => parse(projectFile, parseOptions))
+        projectFiles.map((projectFile) => parse(projectFile, parseOptions)),
       )) as ProjectParseResult[];
 
       resolvers = await processProjects(parsedProjects);
