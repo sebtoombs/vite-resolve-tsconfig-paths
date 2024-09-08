@@ -22,7 +22,7 @@ export default defineConfig({
 });
 ```
 
-### Options
+## Options
 
 Currently none. Some coming soon.
 
