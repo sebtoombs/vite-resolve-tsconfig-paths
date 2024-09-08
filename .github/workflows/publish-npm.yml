@@ -1,7 +1,7 @@
 name: Publish Package to npmjs
 on:
   release:
-    types: [published]
+    types: [published, prereleased, released]
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -16,6 +16,6 @@ jobs:
           node-version: "20.x"
           registry-url: "https://registry.npmjs.org"
       - run: npm ci
-      - run: npm publish --provenance --access public
+      - run: npx publish-if-not-exists --provenance --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
