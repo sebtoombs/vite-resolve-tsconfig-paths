@@ -10,3 +10,5 @@ jobs:
     uses: ./.github/workflows/publish-release.yml
     with:
       ref: refs/tags/${{ inputs.tag }}
+    permissions:
+      contents: write

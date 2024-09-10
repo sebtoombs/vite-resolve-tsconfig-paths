@@ -10,9 +10,14 @@ jobs:
     uses: ./.github/workflows/publish-release.yml
     with:
       ref: ${{ github.ref }}
+    permissions:
+      contents: write
   publish-npm:
     uses: ./.github/workflows/publish-npm.yml
     with:
       ref: ${{ github.ref }}
     secrets:
       NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+    permissions:
+      contents: read
+      id-token: write
