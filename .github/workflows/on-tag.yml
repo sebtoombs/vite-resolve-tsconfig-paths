@@ -1,0 +1,18 @@
+name: On tag
+
+on:
+  push:
+    tags:
+      - "v[0-9]+.[0-9]+.[0-9]+" # Run on tags matching a semver
+
+jobs:
+  create-release:
+    uses: ./.github/workflows/publish-release.yml
+    with:
+      ref: ${{ github.ref }}
+  publish-npm:
+    uses: ./.github/workflows/publish-npm.yml
+    with:
+      ref: ${{ github.ref }}
+    secrets:
+      NPM_TOKEN: ${{ secrets.NPM_TOKEN }}

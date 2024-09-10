@@ -1,4 +1,5 @@
 name: Publish Package to npmjs (manual)
+
 on:
   workflow_dispatch:
     inputs:
@@ -6,23 +7,9 @@ on:
         description: The tag to publish
         required: true
 jobs:
-  build:
-    runs-on: ubuntu-latest
-    permissions:
-      contents: read
-      id-token: write
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-        with:
-          ref: refs/tags/${{ inputs.tag }}
-      # Setup .npmrc file to publish to npm
-      - uses: actions/setup-node@v4
-        with:
-          node-version: "20.x"
-          registry-url: "https://registry.npmjs.org"
-      - run: npm ci
-      - run: npm run build
-      - run: npx publish-if-not-exists --provenance --access public
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+  publish-npm:
+    uses: ./.github/workflows/publish-npm.yml
+    with:
+      ref: refs/tags/${{ inputs.tag }}
+    secrets:
+      NPM_TOKEN: ${{ secrets.NPM_TOKEN }}

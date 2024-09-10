@@ -46,10 +46,14 @@ echo "Latest version tag: $GIT_TAG_LATEST"
  
 # Get version type from first argument passed to script
 VERSION_TYPE="${1-}"
+PRERELEASE="${2-}"
 VERSION_NEXT=""
 
 echo "Change type: $VERSION_TYPE"
- 
+if [ -n "$PRERELEASE" ]; then
+  echo "Prerelease: $PRERELEASE"
+fi
+
 if [ "$VERSION_TYPE" = "patch" ]; then
   # Increment patch version
   VERSION_NEXT="$(echo "$GIT_TAG_LATEST" | awk -F. '{$NF++; print $1"."$2"."$NF}')"
@@ -61,9 +65,13 @@ elif [ "$VERSION_TYPE" = "major" ]; then
   VERSION_NEXT="$(echo "$GIT_TAG_LATEST" | awk -F. '{$1++; $2=0; $3=0; print $1"."$2"."$3}')"
 else
   # Print error for unknown versioning type
-  printf "\nError: invalid VERSION_TYPE arg passed, must be 'patch', 'minor' or 'major'\n\n"
+  printf "\nError: invalid VERSION_TYPE arg passed, must be  'patch', 'minor' or 'major'\n\n"
   # Exit with error code
   exit 1
+fi
+
+if [ -n "$PRERELEASE" ]; then
+  VERSION_NEXT="$VERSION_NEXT-$PRERELEASE"
 fi
 
 echo "Next version: $VERSION_NEXT"

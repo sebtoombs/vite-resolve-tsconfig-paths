@@ -1,26 +1,26 @@
 name: Publish Package to npmjs
+
 on:
-  release:
-    types: [published]
-  workflow_run:
-    workflows: ["Publish release", "Publish release (manual)"]
-    types:
-      - completed
+  workflow_call:
+    inputs:
+      ref:
+        required: true
+        type: string
+    secrets:
+      NPM_TOKEN:
+        required: true
+
 jobs:
-  build:
+  publish-npm:
     runs-on: ubuntu-latest
     permissions:
       contents: read
       id-token: write
     steps:
-      - name: Get tag
-        id: get_tag
-        run: echo ::set-output name=tag::${GITHUB_REF#refs/tags/}
       - name: Checkout
         uses: actions/checkout@v4
         with:
-          # TODO this won't work for manual releases
-          ref: refs/tags/${{ steps.get_tag.outputs.tag }}
+          ref: ${{ workflow.inputs.ref }}
       # Setup .npmrc file to publish to npm
       - uses: actions/setup-node@v4
         with:
