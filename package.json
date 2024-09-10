@@ -1,6 +1,6 @@
 {
   "name": "vite-resolve-tsconfig-paths",
-  "version": "0.0.0",
+  "version": "0.0.4",
   "description": "A Vite plugin that resolves TypeScript compilerOptions.paths.",
   "type": "module",
   "main": "dist/index.js",
@@ -21,7 +21,7 @@
     "lint": "eslint .",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
-    "version": "./scripts/version.sh"
+    "version": "0.0.4"
   },
   "dependencies": {
     "tsconfck": "^3.1.3",
