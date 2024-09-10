@@ -13,7 +13,14 @@ jobs:
       contents: read
       id-token: write
     steps:
-      - uses: actions/checkout@v4
+      - name: Get tag
+        id: get_tag
+        run: echo ::set-output name=tag::${GITHUB_REF#refs/tags/}
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          # TODO this won't work for manual releases
+          ref: refs/tags/${{ steps.get_tag.outputs.tag }}
       # Setup .npmrc file to publish to npm
       - uses: actions/setup-node@v4
         with:
