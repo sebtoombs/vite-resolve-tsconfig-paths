@@ -15,7 +15,7 @@ Add to `vite.config.js`
 ```js
 // vite.config.js
 import { defineConfig } from "vite";
-import tsConfigPaths from "vite-resolve-tsconfig-paths";
+import { tsConfigPaths } from "vite-resolve-tsconfig-paths";
 
 export default defineConfig({
   plugins: [tsConfigPaths()],
