@@ -1,5 +1,8 @@
 # vite-resolve-tsconfig-paths
 
+[![npm](https://img.shields.io/badge/npm-CB3837?logo=npm&logoColor=fff)](https://www.npmjs.com/package/vite-resolve-tsconfig-paths)
+[<img src="https://img.shields.io/npm/last-update/vite-resolve-tsconfig-paths"/>](https://www.npmjs.com/package/vite-resolve-tsconfig-paths)
+
 Resolve Typescript paths (tsconfig paths) in your Vite project.
 
 ## Usage
@@ -101,3 +104,7 @@ To make a contribution;
 - Wait for a review
 - If approved, squash and merge
 - Your change will be included in the next release!
+
+## Support
+
+<a href='https://ko-fi.com/C1C21326AG' target='_blank'><img height='36' style='border:0px;height:36px;' src='https://storage.ko-fi.com/cdn/kofi4.png?v=6' border='0' alt='Buy Me a Coffee at ko-fi.com' /></a>
