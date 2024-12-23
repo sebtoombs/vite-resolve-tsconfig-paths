@@ -60,7 +60,7 @@ If there is an importer, the request id is not relative, and the request is not 
 
 ## Prior art
 
-This plugin was inspired by, and borrows some logic (checking request ids to see if resolvers should be applied) from [https://github.com/aleclarson/vite-tsconfig-paths](vite-tsconfig-paths), however we've taken a significantly different approach to solving the problem.
+This plugin was inspired by, and borrows some logic (checking request ids to see if resolvers should be applied) from **vite-tsconfig-paths** ([https://github.com/aleclarson/vite-tsconfig-paths](vite-tsconfig-paths)), however we've taken a significantly different approach to solving the problem.
 
 ## Contributing
 
