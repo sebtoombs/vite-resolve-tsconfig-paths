@@ -3,12 +3,12 @@
   "version": "0.0.0",
   "description": "A Vite plugin that resolves TypeScript compilerOptions.paths.",
   "type": "module",
-  "main": "dist/index.js",
-  "module": "dist/index.mjs",
-  "types": "dist/index.d.ts",
+  "main": "dist/plugin.js",
+  "module": "dist/plugin.mjs",
+  "types": "dist/plugin.d.ts",
   "exports": {
-    "types": "./dist/index.d.ts",
-    "default": "./dist/index.js"
+    "types": "./dist/plugin.d.ts",
+    "default": "./dist/plugin.js"
   },
   "author": "sebtoombs",
   "repository": {
